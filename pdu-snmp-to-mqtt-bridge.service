@@ -1,0 +1,15 @@
+[Unit]
+Description=SNMP to MQTT bridge for server PDU
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+ExecStart=/usr/local/bin/pdu-snmp-to-mqtt-bridge.py
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
